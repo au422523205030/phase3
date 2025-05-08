@@ -1,0 +1,17 @@
+python
+CopyEdit
+import networkx as nx
+# Define a graph with nodes (locations) and edges (distances)
+G = nx.Graph()
+G.add_edges_from([
+    ('A', 'B', {'distance': 5}),
+    ('A', 'C', {'distance': 10}),
+    ('B', 'C', {'distance': 2}),
+    ('B', 'D', {'distance': 7}),
+    ('C', 'D', {'distance': 3})
+])
+# Use Dijkstra's algorithm to find the shortest path
+shortest_path = nx.dijkstra_path(G, source='A', target='D', weight='distance')
+shortest_distance = nx.dijkstra_path_length(G, source='A', target='D', weight='distance')
+print("Shortest Path:", shortest_path)
+print("Shortest Distance:", shortest_distance)
