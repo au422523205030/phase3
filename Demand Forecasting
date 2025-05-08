@@ -1,0 +1,19 @@
+python
+CopyEdit
+# Import libraries
+import pandas as pd
+from statsmodels.tsa.arima.model import ARIMA
+import matplotlib.pyplot as plt
+# Load the dataset
+data = pd.read_csv('sales_data.csv', parse_dates=['Date'], index_col='Date')
+# Train ARIMA model for demand forecasting
+model = ARIMA(data['Sales'], order=(5, 1, 0)) # (p, d, q) values
+model_fit = model.fit()
+# Forecasting the next 30 days
+forecast = model_fit.forecast(steps=30)
+# Plotting the results
+plt.figure(figsize=(10, 6))
+plt.plot(data['Sales'], label='Historical Sales')
+plt.plot(pd.date_range(data.index[-1], periods=31, freq='D')[1:], forecast, label='Forecasted Sales', color='red')
+plt.legend()
+plt.show()
