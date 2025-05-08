@@ -1,0 +1,18 @@
+#python
+#CopyEdit
+# Example using Dash (a web application framework for Python)
+import dash
+from dash import dcc, html
+import plotly.express as px
+# Example plot for sales forecasting visualization
+fig = px.line(sales_data, x='Date', y='Sales', title='Sales Forecast')
+# Initialize Dash app
+app = dash.Dash(__name__)
+# Define layout for the dashboard
+app.layout = html.Div([
+html.H1('Supply Chain Optimization Dashboard'),
+dcc.Graph(figure=fig)
+])
+# Run the app
+if __name__ == '__main__':
+app.run_server(debug=True)
