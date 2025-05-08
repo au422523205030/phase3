@@ -1,0 +1,19 @@
+python
+CopyEdit
+import matplotlib.pyplot as plt
+# Plotting Sales Data
+plt.figure(figsize=(10, 6))
+plt.plot(sales_data['Date'], sales_data['Sales'], label='Sales Over Time')
+plt.xlabel('Date')
+plt.ylabel('Sales')
+plt.title('Sales Trend')
+plt.legend()
+plt.show()
+# Route Optimization Map (Example using fictional data)
+plt.figure(figsize=(8, 8))
+plt.plot([1, 2], [3, 4], marker='o', label='Route from A to D')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Optimized Route Map')
+plt.legend()
+plt.show()
