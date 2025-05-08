@@ -1,0 +1,16 @@
+python
+CopyEdit
+# Importing necessary libraries
+import pandas as pd
+# Load sales and logistics data
+sales_data = pd.read_csv('sales_data.csv')
+inventory_data = pd.read_csv('inventory_data.csv')
+route_data = pd.read_csv('route_data.csv')
+# Handling missing values
+sales_data.fillna(method='ffill', inplace=True)
+inventory_data.fillna(0, inplace=True)
+# Feature Engineering for Demand Forecasting
+sales_data['Month'] = sales_data['Date'].dt.month
+sales_data['Day_of_Week'] = sales_data['Date'].dt.dayofweek
+# Feature Engineering for Route Optimization
+route_data['Travel_Time'] = route_data['Distance'] / route_data['Speed'] # Assuming constant speed
